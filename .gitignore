@@ -3,6 +3,9 @@
 # My user-specific input data
 src/advent_of_code/day*_input.txt
 
+# Symlinks to blog posts
+src/advent_of_code/advent_of_mojo.md
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

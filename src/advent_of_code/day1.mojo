@@ -38,11 +38,17 @@ fn update_position(
 
 
 fn main() raises:
-    var debug = False  # Toggle this flag to enable verbose debugging output and use the test input file.
-
+    var debug = True  # Toggle this flag to enable verbose debugging output and use the test input file.
     var input_file = INPUT_TEST_FILE if debug else INPUT_FILE
     var rotations = load_rotations(input_file)
 
+    if debug:
+        print(
+            "\n**Debug mode**: Using test input data (",
+            INPUT_TEST_FILE,
+            ") - Password (count of zeros) should be 3.",
+        )
+        print()
     print("Info - number of rotations:", len(rotations))
 
     # Calculate min/max rotations
@@ -61,7 +67,7 @@ fn main() raises:
     var current_position = INITIAL_POSITION
     var count_zeros = 0
 
-    print("The dial starts by pointing at", INITIAL_POSITION, ".")
+    print("The dial starts by pointing at", INITIAL_POSITION)
 
     for rotation in rotations:
         current_position = update_position(
@@ -79,7 +85,6 @@ fn main() raises:
                 direction + String(abs_rotation),
                 "to point at",
                 current_position,
-                ".",
             )
 
     print("Password:", count_zeros)
