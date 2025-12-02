@@ -1,0 +1,9 @@
+[project]
+name = "mojo-fireplace"
+version = "0.1.2"
+description = "Toasty, practical Mojo examples by DataBooth"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "modular>=25.7.0",
+]

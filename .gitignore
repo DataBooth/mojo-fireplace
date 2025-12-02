@@ -1,3 +1,9 @@
+# Extras
+
+# My user-specific input data
+src/advent_of_code/day*_input.txt
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -205,3 +211,44 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ===================================
+# Mojo Programming Language (Modular)
+# ===================================
+
+# Note: Mojo source files use *.mojo or *.🔥          
+
+# Modular/Mojo build artifacts
+.mojo/
+.build/
+.build_debug/
+.build_release/
+
+# Mojo package manager (similar to Cargo, Poetry, etc.)
+.modular/
+.modularpkg/
+
+# Mojo cache and temporary files
+__mojo_cache__/
+.mojo_cache/
+
+# Compiled Mojo binaries and objects
+*.mojopkg
+*.mojoir
+*.mojoir.bc
+*.mojomlir
+
+# Modular toolchain downloads (large ~GBs, never commit!)
+.modular_cache/
+.modular/pkg/packages/
+
+# Mojo REPL history
+.mojo_history
+
+# Local Mojo configuration
+.mojo.toml   # sometimes used for project-specific settings (commit if you want config shared)
+
+# VS Code specific for Mojo development (optional but common)
+.vscode/mojo.json
+.vscode/tasks.json
+.vscode/launch.json

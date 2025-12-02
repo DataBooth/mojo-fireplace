@@ -1,8 +1,8 @@
 # 🔥 `mojo-fireplace`
 
-### Warm, practical Mojo examples by DataBooth
+### Toasty, practical Mojo examples by DataBooth
 
-Welcome to the fireplace — a growing collection of clean, well-commented Mojo (🔥) examples that started with Advent of Code 2025 Day 1 and will keep growing all year round.
+Welcome to the Mojo Fireplace — a growing collection of clean, well-commented Mojo 🔥 examples that started with Advent of Code 2025 Day 1 and will keep growing all year round.
 
 Every snippet here is deliberately kept close to Python so you can see exactly how little (or how much) changes when you move to Mojo. Think of this repo as the cosy spot where Python developers come to warm their hands on static typing, ownership, and blazing performance — without freezing in the cold.
 
