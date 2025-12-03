@@ -10,10 +10,10 @@ Every snippet here is deliberately kept close to Python so you can see exactly h
 
 | Folder / File                | Description                                                                 |
 |------------------------------|-----------------------------------------------------------------------------|
-| `day01-dial/`                | Advent of Code 2025 Day 1 – the “sleigh ride” side-by-side Python ↔ Mojo example |
-| `game-of-life/`              | (coming soon) Full Mojo implementation of Conway’s Game of Life with SIMD |
-| `performance-showcase/`      | (planned) Real-world benchmarks and gradual optimisation paths            |
-| …                            | More examples added regularly                                               |
+| `advent_of_code/`            | Advent of Code 2025 Day 1 – the “sleigh ride” side-by-side Python ↔ Mojo example |
+| `game_of_life/`              | Full Mojo implementation of Conway’s Game of Life with SIMD.              |
+| `black_scholes/`             | Option pricing example (in progress)            |
+| ...                          | ...                                               |
 
 Each example is designed to accompany a blog post on the DataBooth site, where we dive deeper into the why and the wow of Mojo.
 
@@ -28,11 +28,12 @@ So pull up a chair, grab a hot drink, and watch Python slowly turn into systems-
 ```bash
 # Clone and play with the Day 1 example
 git clone https://github.com/databooth/mojo-fireplace.git
-cd mojo-fireplace/day01-dial
+cd mojo-fireplace/src/advent_of_code
+
+uv sync # or uv init && uv add modular if not using pyproject.toml
 
 # Python version (zero dependencies)
 uv run day1.py                # or: python day1.py
 
 # Mojo version
-uv add modular                # one-time only, if you don’t have Mojo yet
 mojo day1.mojo

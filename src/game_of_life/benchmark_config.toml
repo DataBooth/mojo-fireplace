@@ -1,0 +1,105 @@
+# ============================================================================
+# Grid Evolution Benchmark Configuration
+# ============================================================================
+# This file defines all implementations to benchmark and their settings.
+# The benchmark system is fully config-driven - add new implementations
+# simply by editing this file.
+[benchmark]
+rows = 128
+cols = 128
+generations = 1000
+seed = 42
+warmup_generations = 5
+
+[paths]
+initial_grid_csv = "initial_grid.csv"
+results_dir = "benchmark_results"
+log_file = "benchmark_results/benchmark.log"
+
+[features]
+run_python = true
+run_mojo = true
+persist_generated_mojo = false
+
+[output]
+show_fingerprints = true
+show_per_generation_time = true
+show_progressive_speedups = true
+save_results_to_csv = true
+csv_timestamp_format = "%Y%m%d_%H%M%S" # e.g., 20250128_143022
+log_level = "INFO" # DEBUG, INFO, WARNING, ERROR
+
+# ============================================================================
+# Python Implementations
+# ============================================================================
+[[implementations]]
+name = "Pure Python"
+type = "python"
+enabled = true
+module = "gridv1"
+class = "Grid"
+description = "Nested List[List[Int]]"
+
+[[implementations]]
+name = "NumPy"
+type = "python"
+enabled = true
+module = "gridv1_np"
+class = "GridNP"
+description = "NumPy with Accelerate framework"
+
+[[implementations]]
+name = "PyTorch Metal"
+type = "python"
+enabled = false # Enable if you have PyTorch with Metal support
+module = "gridv6_metal"
+class = "GridMetal"
+description = "GPU via PyTorch MPS backend"
+
+# ============================================================================
+# Mojo Implementations
+# ============================================================================
+# Note: All Mojo versions use the same test runner (run_grid_bench.mojo)
+# The grid_module parameter specifies which grid implementation to import
+[[implementations]]
+name = "Mojo v1"
+type = "mojo"
+enabled = true
+grid_module = "gridv1"
+description = "List[List[Int]] baseline"
+
+[[implementations]]
+name = "Mojo v2"
+type = "mojo"
+enabled = true
+grid_module = "gridv2"
+description = "Flat memory UnsafePointer[Int8]"
+
+[[implementations]]
+name = "Mojo v3"
+type = "mojo"
+enabled = true
+grid_module = "gridv3"
+description = "Parallelized (multi-core)"
+
+[[implementations]]
+name = "Mojo v4"
+type = "mojo"
+enabled = true
+grid_module = "gridv4"
+description = "Optimized pointer arithmetic"
+
+[[implementations]]
+name = "Mojo v5"
+type = "mojo"
+enabled = true
+grid_module = "gridv5"
+description = "Edge optimization"
+
+[[implementations]]
+name = "Mojo v6 GPU"
+type = "mojo"
+enabled = false # Enable if you have macOS 15+, Xcode 16+, Metal toolchain
+grid_module = "gridv6_gpu"
+description = "Apple Silicon GPU (Metal)"
+requires_gpu = true

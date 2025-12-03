@@ -1,6 +1,6 @@
 INITIAL_POSITION = 50
 N_POSITION = 100
-DEBUG = False
+DEBUG = True
 
 INPUT_FILE = "day1_input.txt"
 INPUT_TEST_FILE = "day1_input_test.txt"
@@ -25,10 +25,12 @@ print(f"Info - max rotations: {max(rotations)}; min rotations: {min(rotations)}"
 
 current_position = INITIAL_POSITION
 count_zeros = 0
+count_all_zeros = 0
 
 print(f"The dial starts by pointing at {INITIAL_POSITION}.")
 
 for rotation in rotations:
+    n_revolution = abs(rotation // N_POSITION)
     current_position = current_position + rotation % N_POSITION
     if current_position >= N_POSITION:
         current_position = current_position - N_POSITION
@@ -36,13 +38,17 @@ for rotation in rotations:
         current_position = N_POSITION + current_position
     if current_position == 0:
         count_zeros += 1
-
-    if DEBUG:
+    count_all_zeros = count_all_zeros + n_revolution
+    if True:
         if rotation < 0:
             print(
-                f"The dial is rotated L{abs(rotation)} to point at {current_position}."
+                f"The dial is rotated L{abs(rotation)} to point at {current_position} - with {n_revolution} revolutions."
             )
         else:
-            print(f"The dial is rotated R{rotation} to point at {current_position}.")
+            print(
+                f"The dial is rotated R{rotation} to point at {current_position} - with {n_revolution} revolutions."
+            )
 
-print(f"Password: {count_zeros}")
+count_all_zeros = count_all_zeros + count_zeros
+
+print(f"Password [old]: {count_zeros} - [new]: {count_all_zeros}")
