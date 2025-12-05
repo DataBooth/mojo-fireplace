@@ -2,7 +2,7 @@ import time
 import sys
 import pandas as pd  # For nice table output
 
-# Note: Install deps with: pip install duckdb rapidfuzz python-Levenshtein polyleven textdistance
+# Note: Install deps for: duckdb rapidfuzz python-Levenshtein polyleven textdistance
 # For Mojo: Run `mojo build levenshtein_mojo.mojo` first, then import levenshtein_mojo
 # Run this script: python benchmark_all.py
 
@@ -78,17 +78,15 @@ def levenshtein_textdistance(s1, s2):
     return textdistance.levenshtein(s1, s2)
 
 
-# 7. Mojo (after building: import levenshtein_mojo)
+# 7. Mojo (after building)
 try:
-    import levenshtein_mojo
+    import ld_list
 
     def levenshtein_mojo(s1, s2):
         """Mojo compiled version."""
-        return levenshtein_mojo.levenshtein_py(s1, s2)
+        return ld_list.distance(s1, s2)
 except ImportError:
-    print(
-        "Warning: Mojo not available (run 'mojo build levenshtein_mojo.mojo'). Skipping."
-    )
+    print("Warning: Mojo not available (run 'mojo build ld_list.mojo'). Skipping.")
 
     def levenshtein_mojo(s1, s2):
         raise NotImplementedError("Mojo module not built.")

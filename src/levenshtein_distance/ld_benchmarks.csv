@@ -1,7 +1,7 @@
 len1,len2,case,Python_s,Python_speedup,DuckDB_s,DuckDB_speedup,RapidFuzz_s,RapidFuzz_speedup,C Ext_s,C Ext_speedup,Polyleven_s,Polyleven_speedup,Textdistance_s,Textdistance_speedup,Mojo_s,Mojo_speedup
-5,5,hello... vs world...,0.000006,1x,0.008221,0x,0.000000,28x,0.000000,24x,0.000000,47x,0.000001,4x,Error,Mojo module not built.
-6,7,kitten... vs sitting...,0.000007,1x,0.008167,0x,0.000000,45x,0.000000,26x,0.000000,45x,0.000001,5x,Error,Mojo module not built.
-100,100,aaaaaaaaaa... vs bbbbbbbbbb...,0.001315,1x,0.008205,0x,0.000002,686x,0.000002,658x,0.000002,830x,0.000003,410x,Error,Mojo module not built.
-105,102,abcabcabca... vs abcabcabca...,0.001499,1x,0.008171,0x,0.000000,5152x,0.000000,4503x,0.000002,946x,0.000002,999x,Error,Mojo module not built.
-500,500,aaaaaaaaaa... vs bbbbbbbbbb...,0.044392,1x,0.009359,5x,0.000015,2993x,0.000015,2984x,0.000025,1749x,0.000016,2760x,Error,Mojo module not built.
-1000,1000,aaaaaaaaaa... vs bbbbbbbbbb...,0.197738,1x,0.012897,15x,0.000049,4042x,0.000049,4046x,0.000098,2027x,0.000050,3935x,Error,Mojo module not built.
+5,5,hello... vs world...,0.000005,1x,0.008107,0x,0.000000,23x,0.000000,19x,0.000000,38x,0.000001,3x,Error,Mojo module not built.
+6,7,kitten... vs sitting...,0.000007,1x,0.008091,0x,0.000000,30x,0.000000,25x,0.000000,45x,0.000001,5x,Error,Mojo module not built.
+100,100,aaaaaaaaaa... vs bbbbbbbbbb...,0.001311,1x,0.008108,0x,0.000002,684x,0.000002,656x,0.000002,828x,0.000003,409x,Error,Mojo module not built.
+105,102,abcabcabca... vs abcabcabca...,0.001502,1x,0.008204,0x,0.000000,5161x,0.000000,4510x,0.000002,924x,0.000002,974x,Error,Mojo module not built.
+500,500,aaaaaaaaaa... vs bbbbbbbbbb...,0.044539,1x,0.009277,5x,0.000015,3003x,0.000015,2986x,0.000025,1758x,0.000016,2762x,Error,Mojo module not built.
+1000,1000,aaaaaaaaaa... vs bbbbbbbbbb...,0.198152,1x,0.012796,15x,0.000049,4047x,0.000049,4047x,0.000098,2029x,0.000050,3943x,Error,Mojo module not built.
