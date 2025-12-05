@@ -1,15 +1,17 @@
 """Day 1 - Rotation/Dial Problem"""
 
-INITIAL_POSITION = 50
-N_POSITION = 100
+from typing import List
 
-INPUT_FILE = "day1_input.txt"
-INPUT_TEST_FILE = "day1_input_test.txt"
+INITIAL_POSITION: int = 50
+N_POSITION: int = 100
+
+INPUT_FILE: str = "day1_input.txt"
+INPUT_TEST_FILE: str = "day1_input_test.txt"
 
 
-def load_rotations(filename):
+def load_rotations(filename: str) -> List[int]:
     """Load rotations from file. L prefix = negative, R prefix = positive."""
-    rotations = []
+    rotations: List[int] = []
     with open(filename, "r") as file:
         for line in file:
             line = line.strip()
@@ -22,17 +24,19 @@ def load_rotations(filename):
     return rotations
 
 
-def update_position(current_position, rotation, n_position):
+def update_position(
+    current_position: int, rotation: int, n_position: int
+) -> int:
     """Update position with modular arithmetic to handle wrapping."""
     return (current_position + rotation) % n_position
 
 
-def main():
+def main() -> None:
     """Run the dial rotation calculation and print summary information."""
-    debug = True  # Toggle this flag to enable verbose debugging output and use the test input file.
+    debug: bool = True  # Toggle this flag to enable verbose debugging output and use the test input file.
 
-    input_file = INPUT_TEST_FILE if debug else INPUT_FILE
-    rotations = load_rotations(input_file)
+    input_file: str = INPUT_TEST_FILE if debug else INPUT_FILE
+    rotations: List[int] = load_rotations(input_file)
 
     if debug:
         print(
@@ -43,18 +47,20 @@ def main():
     print(f"Info - number of rotations: {len(rotations)}")
 
     # Calculate min/max rotations
-    max_rotation = rotations[0]
-    min_rotation = rotations[0]
+    max_rotation: int = rotations[0]
+    min_rotation: int = rotations[0]
     for rotation in rotations:
         if rotation > max_rotation:
             max_rotation = rotation
         if rotation < min_rotation:
             min_rotation = rotation
 
-    print(f"Info - max rotations: {max_rotation}; min rotations: {min_rotation}")
+    print(
+        f"Info - max rotations: {max_rotation}; min rotations: {min_rotation}"
+    )
 
-    current_position = INITIAL_POSITION
-    count_zeros = 0
+    current_position: int = INITIAL_POSITION
+    count_zeros: int = 0
 
     print(f"The dial starts by pointing at {INITIAL_POSITION}")
 
@@ -64,7 +70,7 @@ def main():
             count_zeros += 1
 
         if debug:
-            direction = "L" if rotation < 0 else "R"
+            direction: str = "L" if rotation < 0 else "R"
             print(
                 f"The dial is rotated {direction}{abs(rotation)} to point at {current_position}"
             )

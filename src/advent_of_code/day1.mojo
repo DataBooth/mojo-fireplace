@@ -44,9 +44,9 @@ fn main() raises:
 
     if debug:
         print(
-            "\n**Debug mode**: Using test input data (",
-            INPUT_TEST_FILE,
-            ") - Password (count of zeros) should be 3.",
+            "\n**Debug mode**: Using input data ("
+            + input_file
+            + ") - Password (count of zeros) should be 3.",
         )
         print()
     print("Info - number of rotations:", len(rotations))
@@ -61,7 +61,10 @@ fn main() raises:
             min_rotation = rotation
 
     print(
-        "Info - max rotations:", max_rotation, "; min rotations:", min_rotation
+        "Info - max rotations: "
+        + String(max_rotation)
+        + "; min rotations: "
+        + String(min_rotation)
     )
 
     var current_position = INITIAL_POSITION

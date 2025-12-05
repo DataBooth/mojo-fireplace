@@ -5,5 +5,12 @@ description = "Toasty, practical Mojo examples by DataBooth"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "duckdb>=1.4.2",
     "modular>=25.7.0",
+    "polyleven>=0.9.0",
+    "pytest>=9.0.1",
+    "python-levenshtein>=0.27.3",
+    "rapidfuzz>=3.14.3",
+    "sortedcontainers>=2.4.0",
+    "textdistance>=4.6.3",
 ]
