@@ -1,0 +1,80 @@
+[workspace]
+name = "mojo-fireplace"
+version = "0.1.2"
+description = "Toasty, practical Mojo examples by DataBooth"
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[dependencies]
+python = ">=3.12,<3.15"
+pytest = "*"
+
+[pypi-dependencies]
+duckdb = ">=1.4.2"
+polyleven = ">=0.9.0"
+python-levenshtein = ">=0.27.3"
+rapidfuzz = ">=3.14.3"
+sortedcontainers = ">=2.4.0"
+textdistance = ">=4.6.3"
+
+[tasks]
+test-python = "pytest tests/sorted_containers/ tests/levenshtein_distance/"
+
+# Individual Mojo test tasks
+test-hello = { cmd = "mojo run test_hello.mojo", cwd = "tests/hello" }
+test-sysinfo = { cmd = "mojo run test_sysinfo.mojo", cwd = "tests/sysinfo" }
+test-projectile = { cmd = "mojo run test_projectile.mojo", cwd = "tests/projectile" }
+test-kmeans = { cmd = "mojo run test_kmeans.mojo", cwd = "tests/kmeans" }
+test-mcpi = { cmd = "mojo run test_mcpi.mojo", cwd = "tests/mcpi" }
+test-advent = { cmd = "mojo run -I ../../src/advent_of_code test_day1.mojo", cwd = "tests/advent_of_code" }
+test-black-scholes = { cmd = "mojo run -I ../../src/black_scholes test_monte_carlo_options.mojo", cwd = "tests/black_scholes" }
+test-game-of-life = { cmd = "mojo run -I ../../src/game_of_life test_gridv1.mojo", cwd = "tests/game_of_life" }
+
+# Python test tasks
+test-sorted = "pytest tests/sorted_containers/"
+test-levenshtein = "pytest tests/levenshtein_distance/"
+
+# Run all tests
+test-mojo = { depends-on = ["test-hello", "test-sysinfo", "test-projectile", "test-kmeans", "test-mcpi", "test-advent", "test-black-scholes", "test-game-of-life"] }
+test = { depends-on = ["test-mojo", "test-python"] }
+
+# Run example tasks
+run-hello = { cmd = "mojo hello.mojo", cwd = "src/hello" }
+run-sysinfo = { cmd = "mojo sysinfo.mojo", cwd = "src/sysinfo" }
+run-projectile = { cmd = "mojo projectile.mojo", cwd = "src/projectile" }
+
+# Advent of Code
+run-advent-python = { cmd = "python day1.py", cwd = "src/advent_of_code" }
+run-advent-mojo = { cmd = "mojo day1.mojo", cwd = "src/advent_of_code" }
+
+# Black-Scholes
+run-black-scholes-python = { cmd = "python monte_carlo_options.py", cwd = "src/black_scholes" }
+run-black-scholes-mojo = { cmd = "mojo monte_carlo_options.mojo", cwd = "src/black_scholes" }
+
+# Game of Life
+run-gol-python = { cmd = "python life.py", cwd = "src/game_of_life" }
+run-gol-mojo = { cmd = "mojo life.mojo", cwd = "src/game_of_life" }
+benchmark-gol = { cmd = "python benchmark_grid_all_versions.py", cwd = "src/game_of_life" }
+
+# K-means
+run-kmeans-python = { cmd = "python kmeans.py", cwd = "src/kmeans" }
+run-kmeans-mojo = { cmd = "mojo kmeans.mojo", cwd = "src/kmeans" }
+
+# Monte Carlo Pi
+run-mcpi-python = { cmd = "python mcpi.py", cwd = "src/mcpi" }
+run-mcpi-numpy = { cmd = "python mcpi_numpy.py", cwd = "src/mcpi" }
+run-mcpi-v1 = { cmd = "mojo mcpi_v1.mojo", cwd = "src/mcpi" }
+run-mcpi-v2 = { cmd = "mojo mcpi_v2.mojo", cwd = "src/mcpi" }
+run-mcpi-v3 = { cmd = "mojo mcpi_v3.mojo", cwd = "src/mcpi" }
+run-mcpi-v4 = { cmd = "mojo mcpi_v4.mojo", cwd = "src/mcpi" }
+
+# Levenshtein distance
+run-levenshtein-benchmark = { cmd = "python benchmark.py", cwd = "src/levenshtein_distance" }
+
+# Sorted containers
+run-sorted-benchmark = { cmd = "python benchmark_sortedlist.py", cwd = "src/sorted_containers" }
+run-sorted-main = { cmd = "mojo mojo_sortedlist_core_main.mojo", cwd = "src/sorted_containers" }
+
+# Person example (Python interop)
+run-person-mojo = { cmd = "mojo person_module_main.mojo", cwd = "src/docs_person_example" }
+run-person-python = { cmd = "python test_person_module.py", cwd = "src/docs_person_example" }
