@@ -22,10 +22,11 @@ fn load_rotations(filename: String) raises -> List[Int]:
 
             if line_stripped.startswith("L"):
                 # L rotation: negative value
-                rotations.append(-Int(line_stripped[1:]))
+                var magnitude = Int(line_stripped.replace("L", ""))
+                rotations.append(-magnitude)
             else:
                 # R rotation: positive value (strip 'R' prefix)
-                rotations.append(Int(line_stripped[1:]))
+                rotations.append(Int(line_stripped.replace("R", "")))
 
     return rotations.copy()
 

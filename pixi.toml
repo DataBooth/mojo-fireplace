@@ -2,10 +2,11 @@
 name = "mojo-fireplace"
 version = "0.1.2"
 description = "Toasty, practical Mojo examples by DataBooth"
-channels = ["conda-forge"]
+channels = ["conda-forge", "https://conda.modular.com/max"]
 platforms = ["osx-arm64"]
 
 [dependencies]
+max = ">=26.1.0,<27"
 python = ">=3.12,<3.15"
 pytest = "*"
 
@@ -18,7 +19,7 @@ sortedcontainers = ">=2.4.0"
 textdistance = ">=4.6.3"
 
 [tasks]
-test-python = "pytest tests/sorted_containers/ tests/levenshtein_distance/"
+test-python = "PYTHONPATH=src/sorted_containers:src/levenshtein_distance pytest tests/sorted_containers/ tests/levenshtein_distance/"
 
 # Individual Mojo test tasks
 test-hello = { cmd = "mojo run test_hello.mojo", cwd = "tests/hello" }

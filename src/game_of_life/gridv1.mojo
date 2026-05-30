@@ -1,7 +1,7 @@
 import random
 
 
-struct Grid[rows: Int, cols: Int](Copyable, Movable, Stringable):
+struct Grid[rows: Int, cols: Int](Copyable, Movable):
     var data: List[List[Int]]
 
     fn __str__(self) -> String:
