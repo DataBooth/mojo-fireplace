@@ -1,6 +1,6 @@
 [workspace]
 name = "mojo-fireplace"
-version = "0.1.2"
+version = "0.9.1"
 description = "Toasty, practical Mojo examples by DataBooth"
 channels = ["conda-forge", "https://conda.modular.com/max"]
 platforms = ["osx-arm64"]
